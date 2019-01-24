@@ -1,12 +1,15 @@
 package test.SIGIST;
 
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import pages.AutomationPracticeStartPage;
+
 import java.util.concurrent.TimeUnit;
 
 public class SeleniumTests {
@@ -32,7 +35,24 @@ public class SeleniumTests {
     }
 
     @Test
-    public void logIn(){
+    public void goToSignInPage(){
+
+        AutomationPracticeStartPage startPage = new AutomationPracticeStartPage(driver);
+
+        startPage.goToSignInPage();
+
+        Assert.assertEquals("Sign in",startPage.getNameOfSignInPage());
+    }
+    @Test
+    public void signIn(){
+
+        AutomationPracticeStartPage startPage = new AutomationPracticeStartPage(driver);
+        startPage.goToSignInPage();
+        startPage.logIn();
+    }
+    /*
+    @Test
+    public void firstLogIn(){
 
         driver.findElement(By.id("email")).sendKeys("slask@apa.se");
         driver.findElement(By.id("passwd")).sendKeys("slask");
@@ -56,7 +76,7 @@ public class SeleniumTests {
         WebElement proceedToCheckoutFromShoppingCartSummary = driver.findElement(By.xpath("//*[@id=\"center_column\"]/p[2]/a[1]/span"));
         proceedToCheckoutFromShoppingCartSummary.click();
 
-        logIn();
+        //logIn();
 
         WebElement addressProceedToCheckout = driver.findElement(By.xpath("//*[@id=\"center_column\"]/form/p/button/span"));
         addressProceedToCheckout.click();
@@ -74,4 +94,5 @@ public class SeleniumTests {
         addressProceedToCheckout3.click();
 
     }
+    */
 }
