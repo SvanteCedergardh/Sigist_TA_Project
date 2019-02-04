@@ -2,7 +2,7 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class AutomationPracticeStartPage {
+public class SigistStartPage {
 
     WebDriver driver;
 
@@ -13,15 +13,16 @@ public class AutomationPracticeStartPage {
     String password = "slask";
     By signInButtonLink = By.xpath("//*[@id=\"SubmitLogin\"]/span");
 
-    public AutomationPracticeStartPage(WebDriver browser) {
+    public SigistStartPage(WebDriver browser) {
 
         this.driver = browser;
 
     }
-    public void goToSignInPage(){
+    public AutomationPracticeSignInPage goToSignInPage(){
 
         driver.findElement(signInLink).click();
 
+        return new AutomationPracticeSignInPage(driver);
     }
     public String getNameOfSignInPage() {
 
