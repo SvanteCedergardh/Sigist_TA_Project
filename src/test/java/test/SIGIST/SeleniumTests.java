@@ -4,95 +4,76 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import pages.AutomationPracticeStartPage;
+import pages.HomePage;
+import pages.LinkPages.Facebook;
+import pages.LinkPages.GooglePlus;
+import pages.SocialMediaLinksPage;
 
 import java.util.concurrent.TimeUnit;
 
 public class SeleniumTests {
 
-    WebDriver driver;
+    WebDriver browser;
+
+    private String sigistTitle = "SIGIST Sweden – Special Interest Group In Software Testing";
 
     @Before
     public void setUp() {
 
-        driver = new ChromeDriver();
-        //driver.manage().window().maximize();
+        browser = new ChromeDriver();
+        browser.manage().window().maximize();
 
-        driver.get("http://automationpractice.com/index.php");
-
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
+        browser.get("https://www.sigist.se/");
+        browser.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
     }
-
     @After
     public void tearDown(){
 
-        driver.quit();
-    }
-
-    @Test
-    public void goToSignInPage(){
-
-        AutomationPracticeStartPage startPage = new AutomationPracticeStartPage(driver);
-
-        startPage.goToSignInPage();
-
-        Assert.assertEquals("Sign in",startPage.getNameOfSignInPage());
+        browser.quit();
     }
     @Test
-    public void signIn(){
+    public void verifyTitle(){
 
-        AutomationPracticeStartPage startPage = new AutomationPracticeStartPage(driver);
-        startPage.goToSignInPage();
-        startPage.logIn();
+        Assert.assertEquals(sigistTitle, new HomePage(browser).getSigistTitle());
+    }
+    @Test
+    public void checkGooglePlusLink() {
+
+        SocialMediaLinksPage newPage = new SocialMediaLinksPage(browser);
+
+        GooglePlus googlePlusPage = newPage.visitGooglePlus();
+
+        Assert.assertEquals("Google plus page",googlePlusPage.verifypage());
     }
     /*
     @Test
-    public void firstLogIn(){
+    public void checkTwitterLink() {
 
-        driver.findElement(By.id("email")).sendKeys("slask@apa.se");
-        driver.findElement(By.id("passwd")).sendKeys("slask");
-        driver.findElement(By.xpath("//*[@id=\"SubmitLogin\"]/span")).click();
+        SocialMediaLinksPage newPage = new SocialMediaLinksPage(browser);
 
+        GooglePlus googlePlusPage = newPage.visitGooglePlus();
 
+        Assert.assertEquals("Google plus page",googlePlusPage.verifypage());
+        Assert.assertEquals("","");
     }
+    */
     @Test
-    public void goToDresses() {
+    public void checkFacebookLink() {
 
-        WebElement dressesLink = driver.findElement(By.xpath("//*[@id=\"block_top_menu\"]/ul/li[2]/a"));
+        SocialMediaLinksPage newPage = new SocialMediaLinksPage(browser);
 
-        dressesLink.click();
+        Facebook facebookPage = newPage.visitFacebook();
+        facebookPage.verifyPage();
 
-        WebElement buyPrintedChiffonDress = driver.findElement(By.xpath("//*[@id=\"center_column\"]/ul/li[5]/div/div[2]/div[2]/a[1]/span"));
-        buyPrintedChiffonDress.click();
+        Assert.assertEquals("https://www.facebook.com/sigistsweden/", facebookPage.verifyPage());
+    }
+    /*
+    @Test
+    public void checkLinkedInLink() {
 
-        WebElement proceedToCheckoutFromCategories = driver.findElement(By.xpath("//*[@id=\"layer_cart\"]/div[1]/div[2]/div[4]/a/span"));
-        proceedToCheckoutFromCategories.click();
-
-        WebElement proceedToCheckoutFromShoppingCartSummary = driver.findElement(By.xpath("//*[@id=\"center_column\"]/p[2]/a[1]/span"));
-        proceedToCheckoutFromShoppingCartSummary.click();
-
-        //logIn();
-
-        WebElement addressProceedToCheckout = driver.findElement(By.xpath("//*[@id=\"center_column\"]/form/p/button/span"));
-        addressProceedToCheckout.click();
-
-        WebElement termsOfService = driver.findElement(By.id("cgv"));
-        termsOfService.click();
-
-        WebElement addressProceedToCheckout1 = driver.findElement(By.xpath("//*[@id=\"form\"]/p/button/span"));
-        addressProceedToCheckout1.click();
-
-        WebElement addressProceedToCheckout2 = driver.findElement(By.xpath("//*[@id=\"HOOK_PAYMENT\"]/div[1]/div/p/a\n"));
-        addressProceedToCheckout2.click();
-
-        WebElement addressProceedToCheckout3 = driver.findElement(By.xpath("//*[@id=\"cart_navigation\"]/button/span"));
-        addressProceedToCheckout3.click();
-
+        Assert.assertEquals("", "");
     }
     */
 }

@@ -10,7 +10,7 @@ public class SocialMediaLinksPage {
 
     WebDriver browser;
 
-    By googlePlusPath = By.id("google");
+    By googlePlusPath = By.xpath("//*[@id=\"site-header\"]/div/div[1]/div[2]/div/ul/li[1]/a");
     By twitterPath = By.id("twitter");
     By facebookButtonPath = By.xpath("//*[@id=\"site-header\"]/div/div[1]/div[2]/div/ul/li[3]/a");
     By linkedInPath = By.id("linkedin");
@@ -19,15 +19,15 @@ public class SocialMediaLinksPage {
 
         this.browser = driver;
     }
-
-    /*
     public GooglePlus visitGooglePlus() {
 
-        browser.findElement(googlePlusPath).click();
+        WebElement link = browser.findElement(googlePlusPath);
+        String googleHref = link.getAttribute("href");
+        browser.get(googleHref);
 
         return new GooglePlus(browser);
     }
-    */
+
     public Facebook visitFacebook() {
 
         WebElement link = browser.findElement(facebookButtonPath);
