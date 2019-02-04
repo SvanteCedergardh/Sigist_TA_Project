@@ -2,36 +2,16 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class SigistStartPage {
+public class HomePage {
 
-    WebDriver driver;
+    WebDriver browser;
 
-    By signInLink = By.xpath("//*[@id=\"header\"]/div[2]/div/div/nav/div[1]/a");
-    By emailLink = By.id("email");
-    By passwordLink = By.id("passwd");
-    String mailAddress = "slask@apa.se";
-    String password = "slask";
-    By signInButtonLink = By.xpath("//*[@id=\"SubmitLogin\"]/span");
+    public HomePage(WebDriver driver) {
 
-    public SigistStartPage(WebDriver browser) {
-
-        this.driver = browser;
-
+        this.browser = driver;
     }
-    public AutomationPracticeSignInPage goToSignInPage(){
+    public String getSigistTitle() {
 
-        driver.findElement(signInLink).click();
-
-        return new AutomationPracticeSignInPage(driver);
-    }
-    public String getNameOfSignInPage() {
-
-        return driver.findElement(signInLink).getText();
-    }
-    public void logIn(){
-
-        driver.findElement(emailLink).sendKeys(mailAddress);
-        driver.findElement(passwordLink).sendKeys(password);
-        driver.findElement(signInButtonLink).click();
+        return browser.getTitle();
     }
 }

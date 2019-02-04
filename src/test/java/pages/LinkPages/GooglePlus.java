@@ -10,8 +10,7 @@ public class GooglePlus {
 
         this.browser = driver;
     }
-
-    public String verifypage() {
+    public String verifyPage() {
 
         return browser.getCurrentUrl();
     }

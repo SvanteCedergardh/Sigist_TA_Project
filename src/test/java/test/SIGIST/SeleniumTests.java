@@ -9,6 +9,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import pages.HomePage;
 import pages.LinkPages.Facebook;
 import pages.LinkPages.GooglePlus;
+import pages.LinkPages.LinkedIn;
+import pages.LinkPages.Twitter;
 import pages.SocialMediaLinksPage;
 
 import java.util.concurrent.TimeUnit;
@@ -42,38 +44,33 @@ public class SeleniumTests {
     public void checkGooglePlusLink() {
 
         SocialMediaLinksPage newPage = new SocialMediaLinksPage(browser);
-
         GooglePlus googlePlusPage = newPage.visitGooglePlus();
 
-        Assert.assertEquals("Google plus page",googlePlusPage.verifypage());
+        Assert.assertEquals("Google plus page",googlePlusPage.verifyPage());
     }
-    /*
+
     @Test
     public void checkTwitterLink() {
 
         SocialMediaLinksPage newPage = new SocialMediaLinksPage(browser);
+        Twitter twitterPage = newPage.visitTwitter();
 
-        GooglePlus googlePlusPage = newPage.visitGooglePlus();
-
-        Assert.assertEquals("Google plus page",googlePlusPage.verifypage());
-        Assert.assertEquals("","");
+        Assert.assertEquals("Twitter page",twitterPage.verifyPage());
     }
-    */
     @Test
     public void checkFacebookLink() {
 
         SocialMediaLinksPage newPage = new SocialMediaLinksPage(browser);
-
         Facebook facebookPage = newPage.visitFacebook();
-        facebookPage.verifyPage();
 
         Assert.assertEquals("https://www.facebook.com/sigistsweden/", facebookPage.verifyPage());
     }
-    /*
     @Test
     public void checkLinkedInLink() {
 
-        Assert.assertEquals("", "");
+        SocialMediaLinksPage newPage = new SocialMediaLinksPage(browser);
+        LinkedIn linkedInPage = newPage.visitLinkedIn();
+
+        Assert.assertEquals("LinkedIn: Log In or Sign Up", linkedInPage.verifyPage());
     }
-    */
 }
