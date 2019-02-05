@@ -2,11 +2,11 @@ package pages;
 
 import org.openqa.selenium.WebDriver;
 
-public class UpcommingEventsPage {
+public class AboutUs_ourStory {
 
     WebDriver browser;
 
-    public UpcommingEventsPage(WebDriver driver) {
+    public AboutUs_ourStory(WebDriver driver) {
 
         this.browser = driver;
     }

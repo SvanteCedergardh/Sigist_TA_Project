@@ -2,11 +2,11 @@ package pages;
 
 import org.openqa.selenium.WebDriver;
 
-public class BecomeAMemberPage {
+public class Sponsors {
 
     WebDriver browser;
 
-    public BecomeAMemberPage(WebDriver driver) {
+    public Sponsors(WebDriver driver) {
 
         this.browser = driver;
     }

@@ -2,11 +2,11 @@ package pages;
 
 import org.openqa.selenium.WebDriver;
 
-public class MembershipPage {
+public class SignUp {
 
     WebDriver browser;
 
-    public MembershipPage(WebDriver driver) {
+    public SignUp(WebDriver driver) {
 
         this.browser = driver;
     }

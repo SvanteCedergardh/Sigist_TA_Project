@@ -2,11 +2,11 @@ package pages;
 
 import org.openqa.selenium.WebDriver;
 
-public class PreviousEventsPage {
+public class BecomeAMember {
 
     WebDriver browser;
 
-    public PreviousEventsPage(WebDriver driver) {
+    public BecomeAMember(WebDriver driver) {
 
         this.browser = driver;
     }

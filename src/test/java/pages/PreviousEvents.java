@@ -2,11 +2,11 @@ package pages;
 
 import org.openqa.selenium.WebDriver;
 
-public class SignUpPage {
+public class PreviousEvents {
 
     WebDriver browser;
 
-    public SignUpPage(WebDriver driver) {
+    public PreviousEvents(WebDriver driver) {
 
         this.browser = driver;
     }

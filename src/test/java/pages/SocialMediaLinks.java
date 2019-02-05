@@ -8,7 +8,7 @@ import pages.SocialMediaLinkPages.GooglePlus;
 import pages.SocialMediaLinkPages.LinkedIn;
 import pages.SocialMediaLinkPages.Twitter;
 
-public class SocialMediaLinksPage {
+public class SocialMediaLinks {
 
     WebDriver browser;
 
@@ -21,7 +21,7 @@ public class SocialMediaLinksPage {
     By linkedInButtonTopPath = By.xpath("//*[@id=\"site-header\"]/div/div[1]/div[2]/div/ul/li[4]/a");
     By linkedInButtonBottomPath = By.xpath("//*[@id=\"one_social_widget-1\"]/div/ul/li[4]/a");
 
-    public SocialMediaLinksPage(WebDriver driver) {
+    public SocialMediaLinks(WebDriver driver) {
 
         this.browser = driver;
     }
