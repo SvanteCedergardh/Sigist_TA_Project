@@ -1,5 +1,6 @@
 package pages.SocialMediaLinkPages;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
 public class LinkedIn {
@@ -10,8 +11,8 @@ public class LinkedIn {
 
         this.browser = driver;
     }
-    public String verifyPage() {
+    public void verifyPage() {
 
-        return browser.getTitle();
+        Assert.assertEquals("LinkedIn: Log In or Sign Up", browser.getTitle());
     }
 }

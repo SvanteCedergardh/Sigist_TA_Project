@@ -1,5 +1,6 @@
 package pages;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
 public class UpcomingEvents {
@@ -10,8 +11,8 @@ public class UpcomingEvents {
 
         this.browser = driver;
     }
-    public String verifyPage() {
+    public void verifyPage() {
 
-        return browser.getTitle();
+        Assert.assertEquals("Upcoming – SIGIST Sweden", browser.getTitle());
     }
 }

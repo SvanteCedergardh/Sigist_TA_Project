@@ -1,5 +1,6 @@
 package pages.SocialMediaLinkPages;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
 public class Twitter {
@@ -10,9 +11,9 @@ public class Twitter {
 
         this.browser = driver;
     }
-    public String verifyPage() {
+    public void verifyPage() {
 
-        return browser.getCurrentUrl();
+        Assert.assertEquals("Twitter page",browser.getCurrentUrl());
     }
 
 }

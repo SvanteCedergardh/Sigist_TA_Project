@@ -1,5 +1,6 @@
 package pages.SocialMediaLinkPages;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
 public class GooglePlus {
@@ -10,8 +11,8 @@ public class GooglePlus {
 
         this.browser = driver;
     }
-    public String verifyPage() {
+    public void verifyPage() {
 
-        return browser.getCurrentUrl();
+        Assert.assertEquals("Google plus page",browser.getCurrentUrl());
     }
 }

@@ -12,6 +12,7 @@ import pages.SocialMediaLinkPages.GooglePlus;
 import pages.SocialMediaLinkPages.LinkedIn;
 import pages.SocialMediaLinkPages.Twitter;
 import pages.SocialMediaLinks;
+import pages.UpcomingEvents;
 
 import java.util.concurrent.TimeUnit;
 
@@ -46,7 +47,7 @@ public class SeleniumTests {
         SocialMediaLinks newPage = new SocialMediaLinks(browser);
         GooglePlus googlePlusPage = newPage.visitGooglePlusThroughTopLink();
 
-        Assert.assertEquals("Google plus page",googlePlusPage.verifyPage());
+        googlePlusPage.verifyPage();
     }
     @Test
     public void checkGooglePlusBottomLink() {
@@ -54,7 +55,7 @@ public class SeleniumTests {
         SocialMediaLinks page = new SocialMediaLinks(browser);
         GooglePlus googlePlusPage = page.visitGooglePlusThroughBottomLink();
 
-        Assert.assertEquals("Google Plus Page", googlePlusPage.verifyPage());
+        googlePlusPage.verifyPage();
     }
     @Test
     public void checkTwitterTopLink() {
@@ -62,7 +63,7 @@ public class SeleniumTests {
         SocialMediaLinks newPage = new SocialMediaLinks(browser);
         Twitter twitterPage = newPage.visitTwitterThroughTopLink();
 
-        Assert.assertEquals("Twitter page",twitterPage.verifyPage());
+        twitterPage.verifyPage();
     }
     @Test
     public void checkTwitterBottomLink() {
@@ -70,7 +71,7 @@ public class SeleniumTests {
         SocialMediaLinks page = new SocialMediaLinks(browser);
         Twitter twitterPage = page.visitTwitterThroughBottomLink();
 
-        Assert.assertEquals("Twitter page",twitterPage.verifyPage());
+        twitterPage.verifyPage();
     }
     @Test
     public void checkFacebookTopLink() {
@@ -78,7 +79,7 @@ public class SeleniumTests {
         SocialMediaLinks newPage = new SocialMediaLinks(browser);
         Facebook facebookPage = newPage.visitFacebookThroughTopLink();
 
-        Assert.assertEquals("https://www.facebook.com/sigistsweden/", facebookPage.verifyPage());
+        facebookPage.verifyPage();
     }
     @Test
     public void checkFacebookBottomLink() {
@@ -86,7 +87,7 @@ public class SeleniumTests {
         SocialMediaLinks page = new SocialMediaLinks(browser);
         Facebook facebookPage = page.visitFacebookThroughBottomLink();
 
-        Assert.assertEquals("https://www.facebook.com/sigistsweden/",facebookPage.verifyPage());
+        facebookPage.verifyPage();
     }
     @Test
     public void checkLinkedInTopLink() {
@@ -94,7 +95,7 @@ public class SeleniumTests {
         SocialMediaLinks newPage = new SocialMediaLinks(browser);
         LinkedIn linkedInPage = newPage.visitLinkedInThroughTopLink();
 
-        Assert.assertEquals("LinkedIn: Log In or Sign Up", linkedInPage.verifyPage());
+        linkedInPage.verifyPage();
     }
     @Test
     public void checkLinkedInBottomLink() {
@@ -102,13 +103,14 @@ public class SeleniumTests {
         SocialMediaLinks page = new SocialMediaLinks(browser);
         LinkedIn linkedInPage = page.visitLinkedInThroughBottomLink();
 
-        Assert.assertEquals("LinkedIn: Log In or Sign Up", linkedInPage.verifyPage());
+        linkedInPage.verifyPage();
     }
     @Test
     public void clickOnViewConferenceLinkOnHomePage(){
 
         HomePage newPage = new HomePage(browser);
+        UpcomingEvents upcomingEventsPage = newPage.viewConference();
 
-
+        upcomingEventsPage.verifyPage();
     }
 }
