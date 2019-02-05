@@ -41,36 +41,68 @@ public class SeleniumTests {
         Assert.assertEquals(sigistTitle, new HomePage(browser).getSigistTitle());
     }
     @Test
-    public void checkGooglePlusLink() {
+    public void checkGooglePlusTopLink() {
 
         SocialMediaLinksPage newPage = new SocialMediaLinksPage(browser);
-        GooglePlus googlePlusPage = newPage.visitGooglePlus();
+        GooglePlus googlePlusPage = newPage.visitGooglePlusThroughTopLink();
 
         Assert.assertEquals("Google plus page",googlePlusPage.verifyPage());
     }
-
     @Test
-    public void checkTwitterLink() {
+    public void checkGooglePlusBottomLink() {
+
+        SocialMediaLinksPage page = new SocialMediaLinksPage(browser);
+        GooglePlus googlePlusPage = page.visitGooglePlusThroughBottomLink();
+
+        Assert.assertEquals("Google Plus Page", googlePlusPage.verifyPage());
+    }
+    @Test
+    public void checkTwitterTopLink() {
 
         SocialMediaLinksPage newPage = new SocialMediaLinksPage(browser);
-        Twitter twitterPage = newPage.visitTwitter();
+        Twitter twitterPage = newPage.visitTwitterThroughTopLink();
 
         Assert.assertEquals("Twitter page",twitterPage.verifyPage());
     }
     @Test
-    public void checkFacebookLink() {
+    public void checkTwitterBottomLink() {
+
+        SocialMediaLinksPage page = new SocialMediaLinksPage(browser);
+        Twitter twitterPage = page.visitTwitterThroughBottomLink();
+
+        Assert.assertEquals("Twitter page",twitterPage.verifyPage());
+    }
+    @Test
+    public void checkFacebookTopLink() {
 
         SocialMediaLinksPage newPage = new SocialMediaLinksPage(browser);
-        Facebook facebookPage = newPage.visitFacebook();
+        Facebook facebookPage = newPage.visitFacebookThroughTopLink();
 
         Assert.assertEquals("https://www.facebook.com/sigistsweden/", facebookPage.verifyPage());
     }
     @Test
-    public void checkLinkedInLink() {
+    public void checkFacebookBottomLink() {
+
+        SocialMediaLinksPage page = new SocialMediaLinksPage(browser);
+        Facebook facebookPage = page.visitFacebookThroughBottomLink();
+
+        Assert.assertEquals("https://www.facebook.com/sigistsweden/",facebookPage.verifyPage());
+    }
+    @Test
+    public void checkLinkedInTopLink() {
 
         SocialMediaLinksPage newPage = new SocialMediaLinksPage(browser);
-        LinkedIn linkedInPage = newPage.visitLinkedIn();
+        LinkedIn linkedInPage = newPage.visitLinkedInThroughTopLink();
 
         Assert.assertEquals("LinkedIn: Log In or Sign Up", linkedInPage.verifyPage());
     }
+    @Test
+    public void checkLinkedInBottomLink() {
+
+        SocialMediaLinksPage page = new SocialMediaLinksPage(browser);
+        LinkedIn linkedInPage = page.visitLinkedInThroughBottomLink();
+
+        Assert.assertEquals("LinkedIn: Log In or Sign Up", linkedInPage.verifyPage());
+    }
+    
 }
