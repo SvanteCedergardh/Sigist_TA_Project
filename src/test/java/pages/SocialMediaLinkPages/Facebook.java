@@ -1,12 +1,12 @@
-package pages.LinkPages;
+package pages.SocialMediaLinkPages;
 
 import org.openqa.selenium.WebDriver;
 
-public class GooglePlus {
+public class Facebook {
 
     WebDriver browser;
 
-    public GooglePlus(WebDriver driver) {
+    public Facebook(WebDriver driver) {
 
         this.browser = driver;
     }

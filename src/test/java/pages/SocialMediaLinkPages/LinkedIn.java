@@ -1,4 +1,4 @@
-package pages.LinkPages;
+package pages.SocialMediaLinkPages;
 
 import org.openqa.selenium.WebDriver;
 

@@ -7,10 +7,10 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pages.HomePage;
-import pages.LinkPages.Facebook;
-import pages.LinkPages.GooglePlus;
-import pages.LinkPages.LinkedIn;
-import pages.LinkPages.Twitter;
+import pages.SocialMediaLinkPages.Facebook;
+import pages.SocialMediaLinkPages.GooglePlus;
+import pages.SocialMediaLinkPages.LinkedIn;
+import pages.SocialMediaLinkPages.Twitter;
 import pages.SocialMediaLinksPage;
 
 import java.util.concurrent.TimeUnit;
@@ -38,7 +38,7 @@ public class SeleniumTests {
     @Test
     public void verifyTitle(){
 
-        Assert.assertEquals(sigistTitle, new HomePage(browser).getSigistTitle());
+        Assert.assertEquals(sigistTitle, new HomePage(browser).verifyTitle());
     }
     @Test
     public void checkGooglePlusTopLink() {
@@ -104,5 +104,8 @@ public class SeleniumTests {
 
         Assert.assertEquals("LinkedIn: Log In or Sign Up", linkedInPage.verifyPage());
     }
-    
+    public void viewConferencesOnHomePage(){
+
+
+    }
 }

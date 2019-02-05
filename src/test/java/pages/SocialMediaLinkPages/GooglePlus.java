@@ -1,12 +1,12 @@
-package pages.LinkPages;
+package pages.SocialMediaLinkPages;
 
 import org.openqa.selenium.WebDriver;
 
-public class Twitter {
+public class GooglePlus {
 
     WebDriver browser;
 
-    public Twitter(WebDriver driver) {
+    public GooglePlus(WebDriver driver) {
 
         this.browser = driver;
     }
@@ -14,6 +14,4 @@ public class Twitter {
 
         return browser.getCurrentUrl();
     }
-
 }
-

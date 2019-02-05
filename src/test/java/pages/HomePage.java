@@ -9,8 +9,12 @@ public class HomePage {
 
         this.browser = driver;
     }
-    public String getSigistTitle() {
+    public String verifyTitle() {
 
         return browser.getTitle();
+    }
+    public void clickOnViewConference() {
+
+
     }
 }

@@ -3,10 +3,10 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import pages.LinkPages.Facebook;
-import pages.LinkPages.GooglePlus;
-import pages.LinkPages.LinkedIn;
-import pages.LinkPages.Twitter;
+import pages.SocialMediaLinkPages.Facebook;
+import pages.SocialMediaLinkPages.GooglePlus;
+import pages.SocialMediaLinkPages.LinkedIn;
+import pages.SocialMediaLinkPages.Twitter;
 
 public class SocialMediaLinksPage {
 
