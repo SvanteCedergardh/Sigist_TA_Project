@@ -1,17 +1,17 @@
-package pages;
+package pages.Sponsors;
 
 import org.openqa.selenium.WebDriver;
 
-public class PreviousEvents {
+public class Invero {
 
     WebDriver browser;
 
-    public PreviousEvents(WebDriver driver) {
+    public Invero(WebDriver driver) {
 
         this.browser = driver;
     }
     public String verifyPage() {
 
-        return browser.getTitle();
+        return browser.getCurrentUrl();
     }
 }

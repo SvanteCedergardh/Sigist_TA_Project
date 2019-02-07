@@ -1,18 +1,14 @@
 package test.SIGIST;
 
 import org.junit.After;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import pages.HomePage;
-import pages.SocialMediaLinkPages.Facebook;
-import pages.SocialMediaLinkPages.GooglePlus;
-import pages.SocialMediaLinkPages.LinkedIn;
-import pages.SocialMediaLinkPages.Twitter;
-import pages.SocialMediaLinks;
-import pages.UpcomingEvents;
+import pages.*;
+import pages.SocialMediaLinkPages.*;
+import pages.Sponsors.*;
 
 import java.util.concurrent.TimeUnit;
 
@@ -106,11 +102,126 @@ public class SeleniumTests {
         linkedInPage.verifyPage();
     }
     @Test
-    public void clickOnViewConferenceLinkOnHomePage(){
+    public void clickOnViewConferenceOnHomePage(){
 
         HomePage newPage = new HomePage(browser);
         UpcomingEvents upcomingEventsPage = newPage.viewConference();
 
         upcomingEventsPage.verifyPage();
+    }
+    @Test
+    public void clickOnSignUpHereOnHomePage() {
+
+        HomePage newPage = new HomePage(browser);
+        SignUp signUpPage = newPage.goToSignUpPage();
+
+        signUpPage.verifyPage();
+    }
+    @Test
+    public void clickOnSeeAgendaOnHomePage() {
+
+        HomePage newPage = new HomePage(browser);
+        UpcomingEvents seeAgenda = newPage.seeAgenda();
+
+        seeAgenda.verifyPage();
+    }
+    @Test
+    public void goToSpeaker1FromHomepage() {
+
+        HomePage newPage = new HomePage(browser);
+        UpcomingEvents clickedSpeaker = newPage.goToPresentingSpeaker(1);
+
+        Assert.assertEquals("Törbjörn Ryberg", clickedSpeaker.getSpeakerName(1));
+    }
+    @Test
+    public void goToSpeaker2FromHomepage() {
+
+        HomePage newPage = new HomePage(browser);
+        UpcomingEvents clickedSpeaker = newPage.goToPresentingSpeaker(2);
+
+        Assert.assertEquals("Erik Kieffer, King.com", clickedSpeaker.getSpeakerName(2));
+
+    }
+    @Test
+    public void goToSpeaker3FromHomepage() {
+
+        HomePage newPage = new HomePage(browser);
+        UpcomingEvents clickedSpeaker = newPage.goToPresentingSpeaker(3);
+
+        Assert.assertEquals("Ola Frykheden", clickedSpeaker.getSpeakerName(3));
+
+    }
+    @Test
+    public void goToSpeaker4FromHomepage() {
+
+        HomePage newPage = new HomePage(browser);
+        UpcomingEvents clickedSpeaker = newPage.goToPresentingSpeaker(4);
+
+        Assert.assertEquals("Andy Redwood, Redwood Associates", clickedSpeaker.getSpeakerName(4));
+    }
+    @Test
+    public void visitRedMind() {
+
+        SponsorLinks sponsor = new SponsorLinks(browser);
+        Redmind redmindPage = sponsor.visitRedmind();
+
+        Assert.assertEquals("https://redmind.se/", redmindPage.verifyPage());
+    }
+    @Test
+    public void visitQtema() {
+
+        SponsorLinks sponsor = new SponsorLinks(browser);
+        Qtema qtemaPage = sponsor.visitQtema();
+
+        Assert.assertEquals("https://www.qtema.se/", qtemaPage.verifyPage());
+    }
+    @Test
+    public void visitInvero() {
+
+        SponsorLinks sponsor = new SponsorLinks(browser);
+        Invero inveroPage = sponsor.visitInvero();
+
+        Assert.assertEquals("http://www.invero.se/", inveroPage.verifyPage());
+    }
+    @Test
+    public void visitQualityPoint() {
+
+        SponsorLinks sponsor = new SponsorLinks(browser);
+        QualityPoint qualityPointPage = sponsor.visitQualityPoint();
+
+        Assert.assertEquals("http://www.qualitypoint.se/", qualityPointPage.verifyPage());
+    }
+    @Test
+    public void visitSqs() {
+
+        SponsorLinks sponsor = new SponsorLinks(browser);
+        Sqs sqsPage = sponsor.visitSqs();
+
+        Assert.assertEquals("https://www.sqs.com/se/index.php", sqsPage.verifyPage());
+    }
+    @Test
+    public void visitBrejn() {
+
+        SponsorLinks sponsor = new SponsorLinks(browser);
+        Brejn brejnPage = sponsor.visitBrejn();
+
+        Assert.assertEquals("http://brejn.com/", brejnPage.verifyPage());
+    }
+    @Test
+    public void goToBeASponsor() {
+
+        HomePage page = new HomePage(browser);
+        Sponsorships sponsorshipPage = page.goToBeASponsor();
+
+        Assert.assertEquals("Sponsors – SIGIST Sweden", sponsorshipPage.verifyPage());
+    }
+    @Test
+    public void viewAllProductsOnHomepage() {
+
+        HomePage page = new HomePage(browser);
+        Events clickOnAllProducts = page.goToViewAllProducts();
+
+        Assert.assertEquals("Events – SIGIST Sweden", clickOnAllProducts.verifyPage());
+
     }
 }

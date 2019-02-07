@@ -1,5 +1,6 @@
 package pages;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
 public class SignUp {
@@ -10,4 +11,9 @@ public class SignUp {
 
         this.browser = driver;
     }
+    public void verifyPage() {
+
+        Assert.assertEquals("Sign Up – SIGIST Sweden", browser.getTitle());
+    }
+
 }
